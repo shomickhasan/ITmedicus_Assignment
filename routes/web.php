@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\EmployeesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,24 @@ Route::get('/logout',[AdminController::class,'AdminLogout'])->name('adminlogout'
 // Route for admin area
 Route::get('/',[AdminController::class,'index'])->name('dashboard')->middleware('admin');
 Route::prefix('admin')->group(function(){
-    Route::get('/addcompany',[CompaniesController::class,'index'])->name('admin.addcompany');
-    Route::get('/editcompany',[CompaniesController::class,'edit'])->name('admin.editcompany');
-    Route::get('/managecompanie',[CompaniesController::class,'show'])->name('admin.managecompany');
+    // companies area
+   Route::prefix('companies')->group(function () {
+        Route::get('/addcompany',[CompaniesController::class,'index'])->name('admin.addcompany');
+        Route::get('/editcompany',[CompaniesController::class,'edit'])->name('admin.editcompany');
+        Route::get('/managecompanie',[CompaniesController::class,'show'])->name('admin.managecompany');
+        Route::post('/store',[CompaniesController::class,'store'])->name('admin.companiestore');
+        Route::get('/edit/{slug}',[CompaniesController::class,'editdata'])->name('admin.companiesedit');
+        Route::post('/update/{id}',[CompaniesController::class,'update'])->name('admin.companiesupdate');
+        Route::get('/delete/{id}',[CompaniesController::class,'distroy'])->name('admin.companiesdelete');
+   });
+   Route::prefix('employee')->group(function(){
+        Route::get('/addemploye',[EmployeesController::class,'index'])->name('admin.addemploye');
+        Route::get('/manageemploye',[EmployeesController::class,'show'])->name('admin.showemploye');
+        Route::post('/store',[EmployeesController::class,'store'])->name('admin.storeemploye');
+        Route::get('/edit/{id}',[EmployeesController::class,'edit'])->name('admin.editemploye');
+        Route::get('/delete/{id}',[EmployeesController::class,'distroy'])->name('admin.deleteemploye');
+        Route::post('/update/{id}',[EmployeesController::class,'update'])->name('admin.updateemploye');
+   });
 });
 
 

@@ -74,13 +74,35 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
               <p>
-                Kanban Board
+                Employees
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{Route('admin.addemploye')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add New Employees</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{Route('admin.showemploye')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Employees</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit Employees</p>
+                </a>
+              </li>
+            </ul>
           </li>
+
           <li class="nav-item">
             <a href="{{route('adminlogout')}}" class="nav-link">
                 <i class="text-danger fas fa-sign-out-alt"></i>

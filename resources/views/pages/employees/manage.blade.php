@@ -31,26 +31,45 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Logo</th>
-                      <th>Website</th>
+                      <th>Employee Name</th>
+                      <th>Company Name</th>
+                      <th>Employee Email</th>
+                      <th>Phone Number</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Name</td>
-                      <td>email</td>
-                      <td>Logo</td>
-                      <td>website</td>
-                      <td>Action</td>
-                    </tr>
+                    @php $sl=1 @endphp
+                   @foreach ( $employees as $employee)
+                   <tr>
+                    <td>{{$sl++}}</td>
+                    <td>{{$employee->employee_name}}</td>
+                    <td>
+                        @if (isset($employee->Companiee->companie_name))
+                         {{$employee->Companiee->companie_name}}
+                        @else
+                          <span class="text-danger">You already Delete This Company</span>
+                        @endif
+                    </td>
+                    <td>{{$employee->employee_email}}</td>
+                    <td>{{$employee->employee_phone}}</td>
+                    <td>
+                        <a href="{{Route('admin.editemploye',$employee->id)}}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit text-light"></i>
+                        </a>
+                        <a id="delete" href="{{Route('admin.deleteemploye',$employee->id)}}" class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash text-light"></i>
+                        </a>
+                    </td>
+                  </tr>
+                   @endforeach
                   </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                {{  $employees->links() }}
+              </div>
             </div>
             <!-- /.card -->
           </div>

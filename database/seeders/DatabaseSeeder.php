@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Companies;
+use App\Models\Employees;
 
 
 class DatabaseSeeder extends Seeder
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
 
        //companies factory dammy data genarator
        Companies::factory(17)->create();
+       Employees::factory(25)->create();
     }
 }

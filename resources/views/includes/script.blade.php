@@ -24,6 +24,10 @@
 <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- SweetAlert2 -->
+<script src="{{ asset('plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+<!-- Toastr -->
+<script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
@@ -32,3 +36,32 @@
 <script src="{{asset('dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+<script>
+    @if (Session::has('message'))
+
+    // Custom SweetAlert
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000
+    });
+
+    var type = "{{ Session::get('alert-type', 'info') }}"
+    switch (type) {
+        case 'info':
+            toastr.info("{{ Session::get('message') }}")
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('message') }}")
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}")
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('message') }}")
+            break;
+    }
+    @endif
+</script>
+

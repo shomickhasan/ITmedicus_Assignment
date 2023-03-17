@@ -18,7 +18,7 @@ class CompaniesFactory extends Factory
     {
         return [
             //add company model data
-            'companie_name'=> fake()->sentence($nbWords = 5, $variableNbWords = true),
+            'companie_name'=> fake()->company(),
             'companie_slug'=> fake()->slug(),
             'companie_email'=> fake()->unique()->safeEmail(),
             'companie_logo'=> 'logo.png',

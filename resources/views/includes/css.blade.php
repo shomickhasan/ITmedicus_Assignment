@@ -22,4 +22,10 @@
 <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+<!-- SweetAlert2 -->
+<link rel="stylesheet" href="{{ asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+<!-- Toastr -->
+<link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 

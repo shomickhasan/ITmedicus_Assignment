@@ -27,29 +27,42 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form>
+        <form method="POST" action="{{Route('admin.companiestore')}}" enctype="multipart/form-data">
+            @csrf
           <div class="card-body">
             <div class="form-group">
               <label for="companyName">Companie Name</label>
               <input type="text" class="form-control" id="CompanieName" placeholder="Enter Companie Name" name=companieName />
             </div>
+            @error('companieName')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             <div class="form-group">
               <label for="CompanieEmail">Companie Email</label>
               <input type="email" class="form-control" id="CompanieEmail" placeholder="Enter Companie Email" name="companieEmail">
             </div>
+            @error('companieEmail')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             <div class="form-group">
               <label for="exampleInputFile">File input</label>
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="exampleInputFile">
+                  <input type="file" class="custom-file-input" id="exampleInputFile" name="companieLogo">
                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                 </div>
               </div>
             </div>
+            @error('companieLogo')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             <div class="form-group">
                 <label for="CompanieWebsite">Companie Website</label>
                 <input type="text" class="form-control" id="CompanieWebsite" placeholder="Enter Companie Website" name="companieWebsite">
             </div>
+            @error('companieWebsite')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
           <!-- /.card-body -->
 
           <div class="card-footer">

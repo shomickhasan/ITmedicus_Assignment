@@ -22,10 +22,6 @@
       <div class="row">
         <div class="col-md-11 m-auto">
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Condensed Full Width Table</h3>
-              </div>
-              <!-- /.card-header -->
               <div class="card-body p-0">
                 <table class="table table-sm">
                   <thead>
@@ -35,7 +31,7 @@
                       <th>Email</th>
                       <th>Logo</th>
                       <th>Website</th>
-                      <th>Action</th>
+                      <th style="width: 100px">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -45,9 +41,20 @@
                         <td>{{$sl++}}</td>
                         <td>{{$companie->companie_name}}</td>
                         <td>{{$companie->companie_email}}</td>
-                        <td>{{$companie->companie_logo}}</td>
-                        <td>{{$companie->companie_website}}</td>
-                        <td>Action</td>
+                        <td>
+                            <img height="40" width="40" src="{{asset('images/'.$companie->companie_logo)}}" alt="company_logo">
+                        </td>
+                        <td>
+                            <a href="{{$companie->companie_website}}">{{$companie->companie_website}}</a>
+                        </td>
+                        <td>
+                            <a href="{{Route('admin.companiesedit',$companie->companie_slug)}}" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit text-light"></i>
+                            </a>
+                            <a id="delete" href="{{Route('admin.companiesdelete',$companie->id)}}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash text-light"></i>
+                            </a>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
