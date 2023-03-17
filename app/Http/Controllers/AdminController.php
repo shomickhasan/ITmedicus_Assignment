@@ -7,6 +7,10 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+    //dashboard view
+    public function index(){
+        return view('pages.dashboard');
+    }
     //login page view
     public function loginView(){
         return view('auth.login');

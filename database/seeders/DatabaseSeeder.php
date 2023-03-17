@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Companies;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +18,8 @@ class DatabaseSeeder extends Seeder
        $this->call([
         UserTableSeeder::class,
        ]);
+
+       //companies factory dammy data genarator
+       Companies::factory(17)->create();
     }
 }
