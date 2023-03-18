@@ -42,7 +42,11 @@
                         <td>{{$companie->companie_name}}</td>
                         <td>{{$companie->companie_email}}</td>
                         <td>
+                            @if(isset($companie->companie_logo))
                             <img height="40" width="40" src="{{asset('images/'.$companie->companie_logo)}}" alt="company_logo">
+                            @else
+                            <span>logo dose not save</span>
+                            @endif
                         </td>
                         <td>
                             <a href="{{$companie->companie_website}}">{{$companie->companie_website}}</a>
