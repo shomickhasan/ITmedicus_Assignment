@@ -25,8 +25,8 @@ class EmployeesController extends Controller
         $request->validate([
             'employeeName' => 'required',
             'companyName' => 'required',
-            'employeeEmail' => 'required',
-            'employeePhone' => 'required',
+            'employeeEmail' => 'required|email',
+            'employeePhone' => 'required|min:11|numeric',
 
         ]);
 
@@ -69,8 +69,8 @@ class EmployeesController extends Controller
         $request->validate([
             'employeeName' => 'required',
             'companyName' => 'required',
-            'employeeEmail' => 'required',
-            'employeePhone' => 'required',
+            'employeeEmail' => 'required|email',
+            'employeePhone' => 'required|min:11|numeric',
 
         ]);
         $employees =Employees::find($id);

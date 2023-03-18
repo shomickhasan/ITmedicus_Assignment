@@ -28,9 +28,9 @@ class CompaniesController extends Controller
     public function store(Request $request){
         $request->validate([
             'companieName' => 'required',
-            'companieEmail' => 'required',
+            'companieEmail' => 'required|email',
             'companieLogo' => 'required',
-            'companieWebsite' => 'required',
+            'companieWebsite' => 'required|url',
 
         ]);
         $companie = new Companies;
@@ -62,7 +62,7 @@ class CompaniesController extends Controller
     public function update($id,Request $request){
         $request->validate([
             'companieName' => 'required',
-            'companieEmail' => 'required',
+            'companieEmail' => 'required|email',
             'companieWebsite' => 'required',
 
         ]);

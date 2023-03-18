@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('companie_name');
+            $table->string('companie_name')->required();
             $table->string('companie_slug');
             $table->string('companie_email');
             $table->string('companie_logo');
